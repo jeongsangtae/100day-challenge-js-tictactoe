@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="/styles/overlays.css" />
     <link rel="stylesheet" href="/styles/configuration.css" />
     <link rel="stylesheet" href="/styles/game.css" />
-    <script defer src="/scripts/tictactoe.js"></script>
+    <script defer src="/scripts/config.js"></script>
+    <script defer src="/scripts/game.js"></script>
+    <script defer src="/scripts/app.js"></script>
   </head>
   <body>
     <div id="backdrop"></div>
@@ -48,7 +50,7 @@
               <h2>player 1</h2>
               <h3>player name 1</h3>
               <p class="player-symbol">X</p>
-              <button class="btn btn-alt">Edit</button>
+              <button class="btn btn-alt" id="edit-player-1-btn">Edit</button>
             </div>
           </li>
 
@@ -57,7 +59,7 @@
               <h2>Player 2</h2>
               <h3>player name 2</h3>
               <p class="player-symbol">O</p>
-              <button class="btn btn-alt">Edit</button>
+              <button class="btn btn-alt" id="edit-player-2-btn">Edit</button>
             </div>
           </li>
         </ol>
