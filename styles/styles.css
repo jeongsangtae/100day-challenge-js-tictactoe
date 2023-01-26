@@ -28,6 +28,10 @@ body {
   color: rgb(140, 0, 255);
 }
 
+.btn-sng {
+  margin-top: 2rem;
+}
+
 .btn:hover {
   background-color: rgb(79, 10, 190);
   border-color: rgb(79, 10, 190);

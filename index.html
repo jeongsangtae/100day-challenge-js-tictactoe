@@ -12,19 +12,25 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/overlays.css" />
+    <link rel="stylesheet" href="/styles/configuration.css" />
+    <link rel="stylesheet" href="/styles/game.css" />
     <script defer src="/scripts/tictactoe.js"></script>
   </head>
   <body>
+    <div id="backdrop"></div>
+
     <header id="main-header">
       <h1>Play Tic, Tac, Toe</h1>
       <p>Built with HTML, CSS, JavaScript and - of courst - lots of level</p>
     </header>
 
     <main>
-      <aside>
+      <aside class="modal" id="config-overlay">
         <h2>Choose your name</h2>
+
         <form>
-          <div>
+          <div class="form-control">
             <label for="playername">Player name</label>
             <input type="text" name="playername" id="playername" />
           </div>
@@ -40,8 +46,8 @@
           <li>
             <div>
               <h2>player 1</h2>
-              <h3 class="player-name">player name 1</h3>
-              <p>X</p>
+              <h3>player name 1</h3>
+              <p class="player-symbol">X</p>
               <button class="btn btn-alt">Edit</button>
             </div>
           </li>
@@ -49,32 +55,32 @@
           <li>
             <div>
               <h2>Player 2</h2>
-              <h3 class="player-name">player name 2</h3>
-              <p>O</p>
+              <h3>player name 2</h3>
+              <p class="player-symbol">O</p>
               <button class="btn btn-alt">Edit</button>
             </div>
           </li>
         </ol>
-        <button class="btn">Start New Game</button>
+        <button class="btn btn-sng">Start New Game</button>
       </section>
 
       <section id="active-game">
-        <article>
-          <h3>You Won, <span id="winner-name">PLAYER NAME</span>!</h3>
+        <article id="game-over">
+          <h2>You Won, <span id="winner-name">PLAYER NAME</span>!</h2>
           <p>Click "Start New Game" above, to start a new game!</p>
         </article>
 
         <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p>
-        <ol>
+        <ol id="game-board">
+          <li class="disabled">X</li>
           <li></li>
-          <li></li>
-          <li></li>
+          <li class="disabled">O</li>
 
           <li></li>
-          <li></li>
+          <li class="disabled">X</li>
           <li></li>
 
-          <li></li>
+          <li class="disabled">O</li>
           <li></li>
           <li></li>
         </ol>
