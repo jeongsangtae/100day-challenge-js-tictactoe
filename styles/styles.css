@@ -28,7 +28,7 @@ body {
   color: rgb(140, 0, 255);
 }
 
-.btn-sng {
+#start-game-btn {
   margin-top: 2rem;
 }
 
