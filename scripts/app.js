@@ -1,4 +1,16 @@
 // 여러가지를 초기화시키는 가장 먼저 실행되는 파일
+let editedPlayer = 0;
+
+const players = [
+  {
+    name: "",
+    symbol: "X",
+  },
+  {
+    name: "",
+    symbol: "O",
+  },
+];
 
 const playerConfigOverlay = document.getElementById("config-overlay");
 const backdrop = document.getElementById("backdrop");
@@ -10,13 +22,6 @@ const editPlayer2Btn = document.getElementById("edit-player-2-btn");
 
 const cancelBtn = document.getElementById("cancel-config-btn");
 
-// const submitBtn = document.getElementById("submit-config-btn");
-
-// const playerName1 = document.getElementById("player-name-1");
-// const playerName2 = document.getElementById("player-name-2");
-
-// let changePlayerName = document.createElement("h3");
-
 editPlayer1Btn.addEventListener("click", openPlayerConfig);
 editPlayer2Btn.addEventListener("click", openPlayerConfig);
 
@@ -24,6 +29,3 @@ cancelBtn.addEventListener("click", closePlayerConfig);
 backdrop.addEventListener("click", closePlayerConfig);
 
 formElement.addEventListener("submit", savePlayerConfig);
-
-// submitBtn.addEventListener("click", submitPlayerConfig1);
-// submitBtn.addEventListener("click", submitPlayerConfig2);
