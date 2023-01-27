@@ -10,3 +10,20 @@ function closePlayerConfig() {
   playerConfigOverlay.style.display = "none";
   backdrop.style.display = "none";
 }
+
+function savePlayerConfig(saveEvent) {
+  saveEvent.preventDefault();
+  const formData = new FormData(saveEvent.target);
+  const enteredPlayername = formData.get("playername");
+  console.log(enteredPlayername);
+}
+
+// function submitPlayerConfig1() {
+//   playerName1.innerHTML = changePlayerName;
+//   changePlayerName.append(playerName1);
+// }
+
+// function submitPlayerConfig2() {
+//   playerName2.innerHTML = changePlayerName;
+//   changePlayerName.append(playerName2);
+// }
