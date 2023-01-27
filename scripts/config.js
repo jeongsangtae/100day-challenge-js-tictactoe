@@ -9,13 +9,21 @@ function openPlayerConfig() {
 function closePlayerConfig() {
   playerConfigOverlay.style.display = "none";
   backdrop.style.display = "none";
+  formElement.firstElementChild.classList.remove("error");
+  errorOutput.innerHTML = "";
 }
 
 function savePlayerConfig(saveEvent) {
   saveEvent.preventDefault();
   const formData = new FormData(saveEvent.target);
-  const enteredPlayername = formData.get("playername");
-  console.log(enteredPlayername);
+  const enteredPlayername = formData.get("playername").trim();
+
+  if (!enteredPlayername) {
+    // enteredPlayername === '' 와 동일하다.
+    saveEvent.target.firstElementChild.classList.add("error");
+    errorOutput.innerHTML = "유효한 이름을 입력해주세요.";
+    return;
+  }
 }
 
 // function submitPlayerConfig1() {
