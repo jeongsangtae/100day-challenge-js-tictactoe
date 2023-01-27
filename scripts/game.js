@@ -23,7 +23,20 @@ function selectGameField(selectEvent) {
     return;
   }
 
-  selectEvent.target.innerHTML = players[activePlayer].symbol;
-  selectEvent.target.classList.add("disabled");
+  const selectedField = selectEvent.target;
+  const selectedColumn = selectedField.dataset.col - 1;
+  const selectedRow = selectedField.dataset.row - 1;
+
+  if (gameData[selectedRow][selectedColumn] > 0) {
+    alert("비어있는 공간을 선택해주세요.");
+    return;
+  }
+
+  selectedField.innerHTML = players[activePlayer].symbol;
+  selectedField.classList.add("disabled");
+
+  gameData[selectedRow][selectedColumn] = activePlayer + 1;
+  console.log(activePlayer);
+
   switchPlayer();
 }

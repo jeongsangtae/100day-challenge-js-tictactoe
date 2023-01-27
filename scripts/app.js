@@ -1,4 +1,10 @@
 // 여러가지를 초기화시키는 가장 먼저 실행되는 파일
+const gameData = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+];
+
 let editedPlayer = 0;
 let activePlayer = 0;
 
