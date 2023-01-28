@@ -1,4 +1,5 @@
 // 여러가지를 초기화시키는 가장 먼저 실행되는 파일
+
 const gameData = [
   [0, 0, 0],
   [0, 0, 0],
@@ -8,6 +9,7 @@ const gameData = [
 let editedPlayer = 0;
 let activePlayer = 0;
 let currentRound = 1;
+let gameIsOver = false;
 
 const players = [
   {
@@ -26,6 +28,7 @@ const formElement = document.querySelector("form");
 const errorOutput = document.getElementById("config-errors");
 const gameArea = document.getElementById("active-game");
 const activePlayerName = document.getElementById("active-player-name");
+const gameOver = document.getElementById("game-over");
 
 const editPlayer1Btn = document.getElementById("edit-player-1-btn");
 const editPlayer2Btn = document.getElementById("edit-player-2-btn");

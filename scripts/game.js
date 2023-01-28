@@ -1,10 +1,32 @@
 // 게임 로직을 담당하는 파일
 
+function resetGameStatus() {
+  activePlayer = 0;
+  currentRound = 1;
+  gameIsOver = false;
+  gameOver.firstElementChild.innerHTML = `You Won, <span id="winner-name">PLAYER NAME</span>!`;
+  gameOver.style.display = "none";
+
+  let gameBoardIndex = 0;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      gameData[i][j] = 0;
+      const gameBoardItem = gameBoard.children[gameBoardIndex];
+      gameBoardItem.innerHTML = "";
+      gameBoardItem.classList.remove("disabled");
+      gameBoardIndex++;
+    }
+  }
+}
+
 function startNewGame() {
   if (players[0].name === "" || players[1].name === "") {
     alert("플레이어 이름을 입력해주세요.");
     return;
   }
+
+  resetGameStatus();
+
   activePlayerName.innerHTML = players[activePlayer].name;
   gameArea.style.display = "block";
 }
@@ -19,7 +41,7 @@ function switchPlayer() {
 }
 
 function selectGameField(selectEvent) {
-  if (selectEvent.target.tagName !== "LI") {
+  if (selectEvent.target.tagName !== "LI" || gameIsOver) {
     return;
   }
 
@@ -38,7 +60,9 @@ function selectGameField(selectEvent) {
   gameData[selectedRow][selectedColumn] = activePlayer + 1;
 
   const winnerId = checkForGameOver();
-  console.log(winnerId);
+  if (winnerId !== 0) {
+    endGame(winnerId);
+  }
 
   currentRound++;
   switchPlayer();
@@ -87,4 +111,16 @@ function checkForGameOver() {
   }
 
   return 0;
+}
+
+function endGame(winnerId) {
+  gameIsOver = true;
+  gameOver.style.display = "block";
+
+  if (winnerId > 0) {
+    const winnerName = players[winnerId - 1].name;
+    gameOver.firstElementChild.firstElementChild.innerHTML = winnerName;
+  } else {
+    gameOver.firstElementChild.innerHTML = `It's a Draw!`;
+  }
 }
