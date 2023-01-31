@@ -60,6 +60,7 @@ function selectGameField(selectEvent) {
   gameData[selectedRow][selectedColumn] = activePlayer + 1;
 
   const winnerId = checkForGameOver();
+  console.log(winnerId);
   if (winnerId !== 0) {
     endGame(winnerId);
   }
@@ -116,6 +117,7 @@ function checkForGameOver() {
 function endGame(winnerId) {
   gameIsOver = true;
   gameOver.style.display = "block";
+  console.log(winnerId);
 
   if (winnerId > 0) {
     const winnerName = players[winnerId - 1].name;
